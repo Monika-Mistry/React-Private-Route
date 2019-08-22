@@ -3,7 +3,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-import {fakeAuth} from './fakeAuth';
+import { fakeAuth } from './fakeAuth';
 
 export class Login extends Component {
   state = { redirectToReferrer: false };
@@ -15,14 +15,15 @@ export class Login extends Component {
   };
 
   render() {
-    let { from } = this.props.location.state || { from: { pathname: "/" } };
+    //let { from } = this.props.location.state || { from: { pathname: "/" } } || this.props.from ;
     let { redirectToReferrer } = this.state;
 
-    if (redirectToReferrer) return <Redirect to={from} />;
+    if (redirectToReferrer) return <Redirect to="/protected" />;
 
     return (
       <div>
-        <p>You must log in to view the page at {from.pathname}</p>
+        {/*       <p>You must log in to view the page at {from.pathname}</p> */}
+        <p>You must log in to view the page at /protected</p>
         <button onClick={this.login}>Log in</button>
       </div>
     );

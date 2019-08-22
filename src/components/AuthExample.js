@@ -5,11 +5,11 @@ import {
     Link
 } from "react-router-dom";
 
-import {Public} from './Public';
-import {Protected} from './Protected';
-import {PrivateRoute} from './PrivateRoute';
-import {Login} from './Login';
-import {AuthButton} from './AuthButton';
+import { Public } from './Public';
+import { Protected } from './Protected';
+import { PrivateRoute } from './PrivateRoute';
+import { Login } from './Login';
+import { AuthButton } from './AuthButton';
 
 
 export function AuthExample(props) {
@@ -18,6 +18,9 @@ export function AuthExample(props) {
             <div>
                 <AuthButton />
                 <ul>
+                <li>
+                        <Link to="/">Home</Link>
+                    </li>
                     <li>
                         <Link to="/public">Public Page</Link>
                     </li>
@@ -25,6 +28,7 @@ export function AuthExample(props) {
                         <Link to="/protected">Protected Page</Link>
                     </li>
                 </ul>
+                <Route exact path="/" component={Login} />
                 <Route path="/public" component={Public} />
                 <Route path="/login" component={Login} />
                 <PrivateRoute path="/protected" component={Protected} />
@@ -34,4 +38,4 @@ export function AuthExample(props) {
 }
 
 
-  
+
